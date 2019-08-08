@@ -11,7 +11,7 @@
 
 	<div id="lists">
 		<div id="first">
-			<button class="button" id='disabled' disabled><</button>
+			<button class="button" disabled><</button>
 			<button class="button">></button>
 			<h2>FIRST</h2>
 			<ul class="names" id="firstName">
@@ -28,7 +28,7 @@
 		</div>
 		<div id="third">
 			<button class="button"><</button>
-			<button class="button" id='disabled' disabled>></button>
+			<button class="button" disabled>></button>
 			<h2>THIRD</h2>
 			<ul class="names" id="thirdName">
 
@@ -72,15 +72,21 @@
 		render(slots);
 
 		list.addEventListener('click', (ev) => {
-			// const idx = [...ev.target.parentNode.children].indexOf(ev.target);
+			const idx = [...ev.target.parentNode.children].indexOf(ev.target);
+
 			if (ev.target.tagName === 'LI') {
-				ev.target.classList.toggle('tomato');
+				ev.target.classList.toggle('selected');
 			} else if (ev.target.tagName === 'BUTTON') {
-				console.log(ev.target.parentNode)
+					let trackLi = [...ev.target.parentNode.children][3].innerHTML;
+					console.log([...ev.target.parentNode.children])
+
+					const direction = ev.target.innerHTML;
+					if (direction === '&lt;') {
+					}
+					console.log(direction)
+
 			}
 		});
-
-
 
 
 
